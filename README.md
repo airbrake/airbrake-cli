@@ -52,7 +52,7 @@ user-token: YOUR_USER_TOKEN
 ```
 ### Log in, or run commands, without a username and password
 
-If your account requires GitHub logins, or an SSO login, you cannot use the `login` command. To authenticate in this situation, you must specify either the `--user-key` or `--project-key` flags to the Airbrake CLI, or configure your `$HOME/.airbrake.yaml` file.
+If your account requires GitHub or SSO login, or you have you two factor-authentication enabled, you cannot use the `login` command. To authenticate in this situation, you must specify either the `--user-key` or `--project-key` flags to the Airbrake CLI, or configure your `$HOME/.airbrake.yaml` file.
 
 The following are global flags for the `airbrake` command.
 
