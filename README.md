@@ -12,6 +12,7 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
   - [Username and password](#log-in-with-username-and-password)
   - [GitHub and SSO logins](#log-in-or-run-commands-without-a-username-and-password)
 - [Command usage](#command-usage)
+  - [Install command](#install-command)
   - [Basic commands](#basic-commands)
   - [Going further](#going-further)
 
@@ -52,7 +53,7 @@ user-token: YOUR_USER_TOKEN
 ```
 ### Log in, or run commands, without a username and password
 
-If your account requires GitHub or SSO login, or you have you two factor-authentication enabled, you cannot use the `login` command. To authenticate in this situation, you must specify either the `--user-key` or `--project-key` flags to the Airbrake CLI, or configure your `$HOME/.airbrake.yaml` file.
+If your account requires GitHub or SSO login, or you have you two factor-authentication enabled, you cannot use the `login` command. To authenticate in this situation, you must specify either the `--user-key` flag to the Airbrake CLI, or configure the Airbrake CLI with your user key.
 
 The following are global flags for the `airbrake` command.
 
@@ -63,25 +64,35 @@ Flags:
       --user-key string      User key used to access the API
 ```
 
-Instead of passing the flags to the command, you can set environment variables corresponding to the flags. The name of the environment variable must begin with `AB_` and be followed by the upper case version of the command flag with hyphens converted to underscores, e.g. `AB_USER_KEY` for the `user-key` flag.
+Instead of passing the flags to individual commands, you can set credentials using the `airbrake config set` command. To set your user key (which can be retreived from [your profile settings page](https://airbrake.io/users/edit)) with the `config set` command, invoke:
 
 ```
-export AB_USER_KEY=yourkey
-airbrake projects list
+airbrake config set user-key YOUR_USER_KEY_HERE
 ```
 
-Another alternative is to create a config file with your user key in it. Create a file in the default location, `$HOME/.airbrake.yaml`, with the following contents:
+To check the values the Airbrake CLI is using, invoke:
 
 ```
-project-key: YOUR_PROJECT_KEY
-user-key: YOUR_USER_KEY
+airbrake config show
+```
+
+## Install command
+
+The Airbrake CLI offers an installation command which supports Ruby, Rails, Go, C#, Java, JavaScript, PHP, Python, Swift, and TypeScript via the install command:
+
+```
+# Use the --project-id flag if you already have an Airbrake project in your account
+airbrake install --project-id 12345
+
+# Or have the install command create a new Airbrake project:
+airbrake install --create-project=DESIRED_PROJECT_NAME
 ```
 
 ## Command usage
 
 ### Basic commands
 
-This short example will show you how to send a test error notice to a project with some basic commands.
+This short example will show you how to send a test error notice to an Airbrake project with some basic commands.
 
 #### List projects
 
