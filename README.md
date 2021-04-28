@@ -20,6 +20,7 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
 ### Homebrew
 
 ```
+brew tap airbrake/airbrake-cli
 brew install airbrake
 ```
 
