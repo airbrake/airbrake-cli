@@ -1,10 +1,10 @@
-# Airbrake CLI
-
-The official command-line tool to interact with [Airbrake.io](https://airbrake.io/).
-
 <p align="center">
   <img src="https://airbrake-github-assets.s3.amazonaws.com/brand/airbrake-full-logo.png" width="200">
 </p>
+
+# Airbrake CLI
+
+The official command-line tool to interact with [Airbrake.io](https://airbrake.io/).
 
 ## Contents
 - [Installation](#installation)
@@ -15,12 +15,9 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
   - [Basic commands](#basic-commands)
   - [Going further](#going-further)
 
-
 ## Installation
 
-
 ### Homebrew
-
 
 ```
 brew install airbrake
