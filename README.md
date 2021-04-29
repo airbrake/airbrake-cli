@@ -9,9 +9,9 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
 ## Contents
 - [Installation](#installation)
 - [Authentication](#authentication)
-  - [Login command](#login-commandd)
+  - [Login command](#login-command)
   - [Config command](#config-command)
-  - [Global flags](#global-flag)
+  - [Global flags](#global-flags)
 - [Commands](#commands)
   - [Install command](#install-command)
   - [Projects list command](#projects-list-command)
@@ -85,10 +85,11 @@ Flags:
 
 ### Install command
 
-The Airbrake CLI offers an installation command which supports Ruby, Rails, Go, C#, Java, JavaScript, PHP, Python, Swift, and TypeScript via the install command:
+The Airbrake CLI offers an installation command which supports Ruby, Rails, Go, C#, Java, JavaScript, PHP, Python, Swift, and TypeScript via the `install` command:
 
 ```
-# Use the --project-id flag if you already have an Airbrake project in your account
+# Use the --project-id flag if you already have an Airbrake project in
+# your account you want to use
 airbrake install --project-id 12345
 
 # Or have the install command create a new Airbrake project:
