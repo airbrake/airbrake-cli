@@ -9,11 +9,13 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
 ## Contents
 - [Installation](#installation)
 - [Authentication](#authentication)
-  - [Username and password](#log-in-with-username-and-password)
-  - [GitHub and SSO logins](#log-in-or-run-commands-without-a-username-and-password)
-- [Command usage](#command-usage)
+  - [Login command](#login-commandd)
+  - [Config command](#config-command)
+  - [Global flags](#global-flag)
+- [Commands](#commands)
   - [Install command](#install-command)
-  - [Basic commands](#basic-commands)
+  - [Projects list command](#projects-list-command)
+  - [Notices create command](#notices-create-command)
   - [Going further](#going-further)
 
 ## Installation
@@ -27,9 +29,11 @@ brew install airbrake
 
 ## Authentication
 
-### Log in with Username and Password
+### Login command
 
-Log in to Airbrake by issuing the following command:
+*_Note:_ the `login` command requires username and password and does not support two-factor authentication. For alternative authentication methods (eg: in cases where GitHub logins, SSO, or two-factor authentication are used), please use the [`config` command](#config-command) or [global flags](#global-flags).*
+
+Log in with the Airbrake CLI by issuing the following command:
 
 ```
 airbrake login
@@ -51,20 +55,10 @@ project-key: ""
 user-key: ""
 user-token: YOUR_USER_TOKEN
 ```
-### Log in, or run commands, without a username and password
 
-If your account requires GitHub or SSO login, or you have you two factor-authentication enabled, you cannot use the `login` command. To authenticate in this situation, you must specify either the `--user-key` flag to the Airbrake CLI, or configure the Airbrake CLI with your user key.
+### Config command
 
-The following are global flags for the `airbrake` command.
-
-```
-Flags:
-      --config string        config file (default is $HOME/.airbrake.yaml)
-      --project-key string   Project key used to access the API
-      --user-key string      User key used to access the API
-```
-
-Instead of passing the flags to individual commands, you can set credentials using the `airbrake config set` command. To set your user key (which can be retreived from [your profile settings page](https://airbrake.io/users/edit)) with the `config set` command, invoke:
+If your account requires GitHub or SSO logins, or you have you two-factor authentication enabled, you cannot authenticate with the `login` command. To authenticate in this situation, you can set credentials using the `airbrake config set` command. To set your user key (which can be retreived from [your profile settings page](https://airbrake.io/users/edit)) with the `config set` command, invoke:
 
 ```
 airbrake config set user-key YOUR_USER_KEY_HERE
@@ -76,7 +70,20 @@ To check the values the Airbrake CLI is using, invoke:
 airbrake config show
 ```
 
-## Install command
+### Global flags
+
+Alternative to the `login` and `config` commands, you may specify the `--user-key` flag to the Airbrake CLI. The following are global flags for the `airbrake` command:
+
+```
+Flags:
+      --config string        config file (default is $HOME/.airbrake.yaml)
+      --project-key string   Project key used to access the API
+      --user-key string      User key used to access the API
+```
+
+## Commands
+
+### Install command
 
 The Airbrake CLI offers an installation command which supports Ruby, Rails, Go, C#, Java, JavaScript, PHP, Python, Swift, and TypeScript via the install command:
 
@@ -88,13 +95,9 @@ airbrake install --project-id 12345
 airbrake install --create-project=DESIRED_PROJECT_NAME
 ```
 
-## Command usage
-
-### Basic commands
+### Projects list command
 
 This short example will show you how to send a test error notice to an Airbrake project with some basic commands.
-
-#### List projects
 
 Before we send the test error notice, we need to get the `id` of the project we want to send the notice to. To do this, invoke:
 
@@ -104,7 +107,7 @@ airbrake projects list
 
 We'll be using the `id` field from the `project list` output in the next command.
 
-#### Send error notice
+### Notices create command
 
 Quickly create an error notice using the `notices create` command. Use the project ID you found when you listed your projects above.
 
