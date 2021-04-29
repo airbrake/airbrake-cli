@@ -31,7 +31,7 @@ brew install airbrake
 
 ### Login command
 
-*_Note:_ the `login` command requires username and password and does not support two-factor authentication. For alternative authentication methods (eg: in cases where GitHub logins, SSO, or two-factor authentication are used), please use the [`config` command](#config-command) or [global flags](#global-flags).*
+_**Note:** the `login` command requires username and password and does not support two-factor authentication. For alternative authentication methods (eg: in cases where GitHub logins, SSO, or two-factor authentication are used), please use the [`config` command](#config-command) or [global flags](#global-flags)._
 
 Log in with the Airbrake CLI by issuing the following command:
 
