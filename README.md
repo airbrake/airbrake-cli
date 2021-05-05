@@ -20,12 +20,35 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
 
 ## Installation
 
-### Homebrew
+### Homebrew (MacOS)
 
 ```
 brew tap airbrake/airbrake-cli
 brew install airbrake
+airbrake --version
 ```
+
+### Manual install on MacOS
+
+To install the Airbrake CLI manually on MacOS, find and download the latest .tar.gz file for the appropriate Mac architecture from https://github.com/airbrake/airbrake-cli/releases. Extract the CLI binary from the archive and install it to `/usr/local/bin` with this command:
+
+```
+tar xvzf airbrake*.tar.gz -C /usr/local/bin
+airbrake --version
+```
+
+If desired, change the directory in the command above to extract the file to another location, e.g. somewhere on your `$PATH`.
+
+### Linux
+
+To install the Airbrake CLI on Linux, find and download the latest .tar.gz file for Linux from https://github.com/airbrake/airbrake-cli/releases. Extract the CLI binary from the archive and install it to `/usr/local/bin` with this command:
+
+```
+tar xvzf airbrake*.tar.gz -C /usr/local/bin
+airbrake --version
+```
+
+If desired, change the directory in the command above to extract the file to another location, e.g. somewhere on your `$PATH`.
 
 ## Authentication
 
