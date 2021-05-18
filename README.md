@@ -23,8 +23,7 @@ The official command-line tool to interact with [Airbrake.io](https://airbrake.i
 ### Homebrew (MacOS)
 
 ```
-brew tap airbrake/airbrake-cli
-brew install airbrake
+brew install airbrake/airbrake-cli/airbrake
 airbrake --version
 ```
 
